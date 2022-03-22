@@ -99,16 +99,21 @@ def parens_match_scan(mylist):
     
     """
     ###TODO
+  l1 = [paren_map(i) for i in mylist]
+  tuple = scan(plus, 0, l1)
+  if tuple[1] == 0:
+    return True
+  return False
   
 
 def scan(f, id_, a):
-    """
+  """
     This is a horribly inefficient implementation of scan
     only to understand what it does.
     We saw a more efficient version in class. You can assume
     the more efficient version is used for analyzing work/span.
     """
-    return (
+  return (
             [reduce(f, id_, a[:i+1]) for i in range(len(a))],
              reduce(f, id_, a)
            )
@@ -151,7 +156,7 @@ def test_parens_match_scan():
 #### Divide and conquer solution
 
 def parens_match_dc(mylist):
-    """
+   """
     Calls parens_match_dc_helper. If the result is (0,0),
     that means there are no unmatched parentheses, so the input is valid.
     
@@ -179,6 +184,9 @@ def test_parens_match_dc():
     assert parens_match_dc(['(', ')']) == True
     assert parens_match_dc(['(']) == False
     assert parens_match_dc([')']) == False
+
+def plus(x,y):
+  return x + y
 
 def test_this():
   l1 = ['(','a',')']
