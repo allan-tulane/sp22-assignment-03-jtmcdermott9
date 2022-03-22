@@ -99,11 +99,17 @@ def parens_match_scan(mylist):
     
     """
     ###TODO
-  l1 = [paren_map(i) for i in mylist]
+  """l1 = [paren_map(i) for i in mylist]
   tuple = scan(plus, 0, l1)
   if tuple[1] == 0:
     return True
   return False
+  """
+  maplist = list(map(paren_map, mylist))
+  tuple = scan(plus, 0, maplist)
+  val = reduce(min_f, -math.inf, tuple[0])
+  return val == 0
+  
   
 
 def scan(f, id_, a):
@@ -156,7 +162,7 @@ def test_parens_match_scan():
 #### Divide and conquer solution
 
 def parens_match_dc(mylist):
-   """
+  """
     Calls parens_match_dc_helper. If the result is (0,0),
     that means there are no unmatched parentheses, so the input is valid.
     
@@ -164,11 +170,11 @@ def parens_match_dc(mylist):
       True if parens_match_dc_helper returns (0,0); otherwise False
     """
     # done.
-    n_unmatched_left, n_unmatched_right = parens_match_dc_helper(mylist)
-    return n_unmatched_left==0 and n_unmatched_right==0
+  n_unmatched_left, n_unmatched_right = parens_match_dc_helper(mylist)
+  return n_unmatched_left==0 and n_unmatched_right==0
 
 def parens_match_dc_helper(mylist):
-    """
+  """
     Recursive, divide and conquer solution to the parens match problem.
     
     Returns:
@@ -177,7 +183,7 @@ def parens_match_dc_helper(mylist):
       parens_match_dc to return the final True or False value
     """
     ###TODO
-    pass
+  pass
     
 
 def test_parens_match_dc():
