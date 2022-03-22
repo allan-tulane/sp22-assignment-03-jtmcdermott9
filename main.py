@@ -27,7 +27,7 @@ def reduce(f, id_, a):
 
 #### Iterative solution
 def parens_match_iterative(mylist):
-    """
+  """
     Implement the iterative solution to the parens matching problem.
     This function should call `iterate` using the `parens_update` function.
     
@@ -43,11 +43,17 @@ def parens_match_iterative(mylist):
     False
     """
     ### TODO
-    pass
+  count = iterate(parens_update, 0, mylist)
+  if count == -1:
+    return False
+  if count == 1:
+    return False
+  if count == 0:
+    return True
 
 
 def parens_update(current_output, next_input):
-    """
+  """
     This function will be passed to the `iterate` function to 
     solve the balanced parenthesis problem.
     
@@ -59,7 +65,12 @@ def parens_update(current_output, next_input):
       the updated value of `current_output`
     """
     ###TODO
-    pass
+  if next_input == '(':
+    current_output += 1
+  if next_input == ')':
+    current_output -= 1
+
+  return current_output
 
 
 def test_parens_match_iterative():
@@ -71,7 +82,7 @@ def test_parens_match_iterative():
 #### Scan solution
 
 def parens_match_scan(mylist):
-    """
+  """
     Implement a solution to the parens matching problem using `scan`.
     This function should make one call each to `scan`, `map`, and `reduce`
     
@@ -88,7 +99,7 @@ def parens_match_scan(mylist):
     
     """
     ###TODO
-    pass
+  
 
 def scan(f, id_, a):
     """
@@ -168,3 +179,7 @@ def test_parens_match_dc():
     assert parens_match_dc(['(', ')']) == True
     assert parens_match_dc(['(']) == False
     assert parens_match_dc([')']) == False
+
+def test_this():
+  l1 = ['(','a',')']
+  print(parens_match_scan(l1))
