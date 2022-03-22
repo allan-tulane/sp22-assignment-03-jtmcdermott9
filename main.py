@@ -183,7 +183,8 @@ def parens_match_dc_helper(mylist):
       parens_match_dc to return the final True or False value
     """
     ###TODO
-  pass
+  if len(mylist) == 1:
+    
     
 
 def test_parens_match_dc():
