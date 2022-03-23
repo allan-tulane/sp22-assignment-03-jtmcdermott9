@@ -26,4 +26,6 @@ S(n) = S(n-1) + 1 is an element of O(n)
 
 
 - **f.**
-- 
+- The merge occurs in O(n) work and span, so the recurrences are
+- W(n) = 2W(n/2) + n is an element of O(n log n)
+- S(n) = S(n/2) + n is an element of O(n)
