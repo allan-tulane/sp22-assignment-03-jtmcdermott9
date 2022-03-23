@@ -26,3 +26,4 @@ S(n) = S(n-1) + 1 is an element of O(n)
 
 
 - **f.**
+- 

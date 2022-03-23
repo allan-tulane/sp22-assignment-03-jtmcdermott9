@@ -183,7 +183,27 @@ def parens_match_dc_helper(mylist):
       parens_match_dc to return the final True or False value
     """
     ###TODO
+  if len(mylist) == 0:
+    return (0,0)
   if len(mylist) == 1:
+    if paren_map(mylist[0]) == 1:
+      return (0,1)
+    elif paren_map(mylist[0]) == -1:
+      return (1,0)
+    else:
+      return (0,0)
+  else:
+    left = mylist[:len(mylist)//2]
+    right = mylist[len(mylist)//2:]
+
+    leftT = (parens_match_dc_helper(left))[1]
+    rightT = (parens_match_dc_helper(right))[0]
+    if leftT == (1,0) and rightT == (0,1):
+      return (1,1)
+    if rightT == leftT:
+      return (0,0)
+
+    return (rightT, leftT)
     
     
 
